@@ -23,4 +23,4 @@ COPY seeders ./seeders
 USER node
 EXPOSE 3000
 
-CMD ["sh","-c","npx --yes sequelize-cli db:migrate && node dist/index.js"]
+CMD ["node", "dist/index.js"]

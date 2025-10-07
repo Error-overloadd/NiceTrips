@@ -13,7 +13,6 @@
     "migrate:undo:all": "sequelize-cli db:migrate:undo:all",
     "seed": "sequelize-cli db:seed:all",
     "seed:undo": "sequelize-cli db:seed:undo:all",
-
     "migrate:gen": "sequelize-cli migration:generate --name",
     "seed:gen": "sequelize-cli seed:generate --name"
   },
@@ -23,8 +22,10 @@
   "type": "commonjs",
   "devDependencies": {
     "@types/express": "^5.0.3",
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^24.6.2",
     "@types/validator": "^13.15.3",
+    "bcrypt-ts": "^7.1.0",
     "cross-env": "^10.1.0",
     "sequelize-cli": "^6.6.3",
     "ts-node": "^10.9.2",
@@ -33,6 +34,7 @@
   "dependencies": {
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.15.1",
     "reflect-metadata": "^0.2.2",
     "sequelize": "^6.37.7",
