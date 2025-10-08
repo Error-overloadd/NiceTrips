@@ -2,26 +2,7 @@
 .DS_Store
 node_modules
 build
-mongo-scripts
-api/logs
-ibp/logs
-obp/logs
-cronserver/logs/*
-cronserver/service_logs/*
 .grunt
 *.swp
 .vscode
-
-
-.elasticbeanstalk/
-
-
-
-# Elastic Beanstalk Files
-
-.elasticbeanstalk/*
-
-!.elasticbeanstalk/*.cfg.yml
-
-!.elasticbeanstalk/*.global.yml
 
