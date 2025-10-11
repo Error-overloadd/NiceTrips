@@ -11,12 +11,16 @@ COPY src ./src
 RUN npm run build
 
 FROM base AS runner
-ENV NODE_ENV=production
+ENV NODE_ENV=development
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN npm ci --omit=dev
+RUN npm ci 
 COPY --from=builder /app/dist ./dist
-
+COPY migrations ./migrations
+COPY config/config.cjs ./config/config.cjs
+COPY .sequelizerc ./.sequelizerc
+COPY seeders ./seeders
 USER node
 EXPOSE 3000
+
 CMD ["node", "dist/index.js"]

@@ -1,7 +1,7 @@
 import type { Dialect } from "sequelize";
-import { Sequelize } from "sequelize";
+import { Sequelize } from "sequelize-typescript";
 import dotenv from "dotenv";
-
+import { User } from '../models/user.model.js';
 dotenv.config();
 
 const {
@@ -13,14 +13,15 @@ const {
   DB_PASS = "secret",
   DB_LOGGING = "false",
 } = process.env;
-
+// create sequlized connection
 const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASS, {
   host: DB_HOST,
   port: Number(DB_PORT),
   dialect: DB_DIALECT as Dialect,
   logging: DB_LOGGING === "true" ? console.log : false,
+  models: [User],
 });
-
+// connect the database
 export async function assertDB() {
   try {
     await sequelize.authenticate();
