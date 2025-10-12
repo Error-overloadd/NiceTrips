@@ -1,6 +1,4 @@
 import express from "express";
-import type { Request, Response } from "express";
-// 🧩 导入路由
 import userRouter from "./routes/user.routes";
 import authRouter from "./routes/auth.routes"
 import { assertDB } from "./lib/db.js";

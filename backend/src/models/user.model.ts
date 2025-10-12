@@ -9,12 +9,15 @@ import {
   AllowNull,
 } from "sequelize-typescript";
 import bcrypt from "bcrypt-ts";
+
+// define the 　table name
 @Table({
   tableName: "users",
   timestamps: true, 
   createdAt: "Created_Datetime", 
   updatedAt: "Updated_Datetime",
 })
+// create the user table
 export class User extends Model<User> {
   @Column({
     type: DataType.INTEGER,
@@ -23,7 +26,7 @@ export class User extends Model<User> {
   
   })
   User_ID!: number;
-
+// several column in the table
   @Column({
     type: DataType.STRING(25),
     allowNull: false,
@@ -59,7 +62,7 @@ export class User extends Model<User> {
     type: DataType.VIRTUAL,
     set(this: User, value: string) {
       if (!value || value.length < 8 || value.length > 64) {
-        throw new Error("密码长度需在 8~64 之间");
+        throw new Error("Password length must be between 8 and 64 characters.");
       }
       const hash = bcrypt.hashSync(value, 12);
       this.setDataValue("passwordHash", hash);  
