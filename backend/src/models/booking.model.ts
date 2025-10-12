@@ -53,13 +53,13 @@ export class Booking extends Model<Booking> {
 
   // Relationship with user model (a role belongs to one user)
   @BelongsTo(() => User)
-  user!: User;
+  user?: User;
 
   // Relationship with flight model
   @BelongsTo(() => Flight)
-  flight!: Flight;
+  flight?: Flight;
 
   // Relationship with passenger model
   @BelongsTo(() => Passenger)
-  passenger!: Passenger;
+  passenger?: Passenger;
 }

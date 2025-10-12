@@ -59,11 +59,11 @@ export class Passenger extends Model<Passenger> {
 
   // Relationship with booking model
   @BelongsTo(() => Booking)
-  booking: Booking;
+  booking?: Booking;
 
   // Relationship with seat model
   @BelongsTo(() => Seat)
-  seat: Seat;
+  seat?: Seat;
 
 
 }

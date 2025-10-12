@@ -1,6 +1,7 @@
 import { Table, Column, Model, DataType, ForeignKey, BelongsTo } from "sequelize-typescript";
 import { Passenger } from "./passenger.model";
 import { Flight } from "./flight.model";
+import { defaultValueSchemable } from "sequelize/types/utils";
 
 @Table({
   tableName: "seat",  // Table name
@@ -29,8 +30,9 @@ export class Seat extends Model<Seat> {
   @Column({
     type: DataType.INTEGER,
     allowNull: false,
+    defaultValue: 0
   })
-  Seat_Availability!: string;
+  Seat_Availability!: number;
 
 
   @ForeignKey(() => Passenger)
@@ -49,10 +51,10 @@ export class Seat extends Model<Seat> {
 
 
   @BelongsTo(() => Passenger)
-  passenger: Passenger;
+   passenger?: Passenger;
 
   @BelongsTo(() => Flight)
-  flight: Flight;
+   flight?: Flight;
 
 
 }

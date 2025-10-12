@@ -26,14 +26,15 @@ export class Payment extends Model<Payment> {
     allowNull: false,
   })
   Payment_Currency!: string;
-
+ // Total number of  digits,
+ // Number of digits after the decimal point
   @Column({
-        type: DataType.FLOAT,
+        type: DataType.DECIMAL(10, 2),
         allowNull: false,
-        precision: 10,  // Total number of digits
-        scale: 2,       // Number of digits after the decimal point
+        // precision: 10,  // Total number of digits
+        // scale: 2,       // Number of digits after the decimal point
    })
-  Payment_Amount!: number;
+  Payment_Amount!: string;
 
   @Column({
         type: DataType.STRING(10),
@@ -53,5 +54,5 @@ export class Payment extends Model<Payment> {
 
   // Relationship with user model (a role belongs to one user)
   @BelongsTo(() => User)
-  user: User;
+  user?: User;
 }
